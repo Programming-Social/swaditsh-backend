@@ -11,6 +11,7 @@ services:
       - DATABASE_URL=${DATABASE_URL}  
       - DEV_DATABASE_URL=postgres://postgres:postgres@postgres:5432/swadisth
       - TEST_DATABASE_URL=${TEST_DATABASE_URL}
+      - NODE_ENV=development
     volumes:
       - ./:/app
 
