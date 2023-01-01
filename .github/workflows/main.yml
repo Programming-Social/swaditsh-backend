@@ -23,7 +23,9 @@ jobs:
         uses: docker/setup-buildx-action@v2
       -
         name: Build Image
-        run: docker compose -f docker-compose.dev.yml build --build-arg DEV_DATABASE_URL=${{ secrets.DEV_DATABASE_URL }}
+        run: docker compose -f docker-compose.dev.yml build --build-arg DEV_DATABASE_URL=${DEV_DATABASE_URL}
+        with: 
+          DEV_DATABASE_URL: ${{ secrets.DEV_DATABASE_URL }}
       -
         name: Push Build
         run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/swadisht-backend:latest
