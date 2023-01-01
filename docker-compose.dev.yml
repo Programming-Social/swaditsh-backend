@@ -1,0 +1,23 @@
+version: '0.1'
+
+services:
+  notes:
+    build:
+      context: .
+    ports:
+      - 4000:4000
+    environment: 
+      - test=test
+    volumes:
+      - ./:/app
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data

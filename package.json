@@ -1,41 +1,70 @@
 {
-	"name": "kuberean-house-backend",
-	"version": "0.0.0",
-	"description": "Kuberean-house-backend",
-	"main": "server.js",
-	"scripts": {
-		"migrate": "sequelize db:migrate",
-		"seed": "sequelize db:seed:all",
-		"config": "npm config set sav-prefix='' && npm config set save-exact true && npm run migrate && npm run seed",
-		"start": "npm run config && node index.js",
-		"dev": "npm run config && nodemon server.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+ssh://git@github.com/OutshadeDM/kuberanshouseAPI.git"
-	},
-	"keywords": [
-		"kh",
-		"kuberean",
-		"house"
-	],
-	"author": "example_user",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/OutshadeDM/kuberanshouseAPI/issues"
-	},
-	"homepage": "https://github.com/OutshadeDM/kuberanshouseAPI#readme",
-	"engines": {
-		"npm": ">=8.0.0 9.0.0<",
-		"node": ">=v16.0.0. 18.0.0<"
-	},
-	"dependencies": {
-		"dotenv": "16.0.3",
-		"express": "4.18.2",
-		"nodemon": "2.0.20",
-		"pg": "8.8.0",
-		"pg-hstore": "2.3.4",
-		"sequelize": "6.25.5",
-		"sequelize-cli": "6.5.2"
-	}
+  "name": "swadisth-backend",
+  "version": "0.0.0",
+  "description": "swadisth-backend",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "migrate": "sequelize db:migrate",
+    "seed": "sequelize db:seed:all",
+    "config": "npm config set sav-prefix='' && npm config set save-exact true && npm run migrate",
+    "start": "npm run config && node index.js",
+    "dev": "npm run config && nodemon server.js",
+    "test": "mocha",
+    "test:watch": "nodemon --exec mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:Programming-Social/swaditsh-backend.git"
+  },
+  "keywords": [
+    "swadisth",
+    "Delicious",
+    "delicious",
+    "Swadisth",
+    "js",
+    "JS",
+    "Node Js",
+    "node js",
+    "Postgres",
+    "postgres",
+    "SQL",
+    "sql",
+    "javascript"
+  ],
+  "author": "example_user",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Programming-Social/swaditsh-backend/issues"
+  },
+  "homepage": "https://github.com/Programming-Social/swaditsh-backend#readme",
+  "engines": {
+    "npm": ">=8.0.0 < 9.0.0",
+    "node": ">=v16.0.0 <=18.12.1"
+  },
+  "dependencies": {
+    "express": "4.18.2",
+    "pg": "8.8.0",
+    "pg-hstore": "2.3.4"
+  },
+  "devDependencies": {
+    "chai": "4.3.7",
+    "chai-http": "4.3.0",
+    "dotenv": "16.0.3",
+    "eslint": "8.30.0",
+    "eslint-plugin-import": "2.26.0",
+    "mocha": "10.2.0",
+    "nodemon": "2.0.20",
+    "prettier": "2.8.1",
+    "sequelize": "6.25.5",
+    "sequelize-cli": "6.5.2"
+  },
+  "files": [
+    "index.js",
+    "server.js",
+    "utilities/**/*.js",
+    "resolvers/**/*.js",
+    "middleware/**/*.js",
+    "*.json"
+  ]
 }
