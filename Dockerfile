@@ -1,7 +1,12 @@
 # syntax=docker/dockerfile:1
 FROM node:18-alpine
+
 WORKDIR ./
+
+COPY ["package.json" ,"package.json"]
+
+RUN npm i
 COPY . .
-RUN node --max-old-space-size=4096 `which npm` install
-CMD ["node", "./server.js"]
+RUN npm run test
+CMD ["npm","run","dev"]
 EXPOSE 4000

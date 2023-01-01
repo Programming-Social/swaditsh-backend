@@ -9,7 +9,7 @@
     "seed": "sequelize db:seed:all",
     "config": "npm config set sav-prefix='' && npm config set save-exact true && npm run migrate",
     "start": "npm run config && node index.js",
-    "dev": "npm run config && nodemon server.js",
+    "dev": "npm run config && node server.js",
     "test": "mocha",
     "test:watch": "nodemon --exec mocha"
   },
