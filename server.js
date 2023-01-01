@@ -1,4 +1,4 @@
-import dotenv from 'dotenv'
+// import dotenv from 'dotenv'
 import express from 'express'
 import { Server } from 'http'
 import db from "./database/models/index.cjs"
@@ -7,7 +7,7 @@ import UserRoutes from './routes/user-routes.js'
 const { version } = packageFile
 const { sequelize } = db
 
-dotenv.config()
+// dotenv.config()
 
 const app = express();
 const PORT = process.env.PORT || 4000;
