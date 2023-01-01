@@ -26,7 +26,7 @@ jobs:
         run: docker compose -f docker-compose.dev.yml build --build-arg DEV_DATABASE_URL="postgres://postgres:postgres@postgres:5432/swadisth"
       -
         name: Push Build
-        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/swadisht-backend:latest
+        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/swaditsh-backend-dev:latest
         # uses: docker/build-push-action@v3
         # with:
         #   context: .
