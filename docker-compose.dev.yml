@@ -2,17 +2,17 @@ version: '0.1'
 
 services:
   dev:
+    environment: 
+        - test=test
+        - DATABASE_URL=postgres://postgres:postgres@postgres:5432/swadisth
+        - DEV_DATABASE_URL=postgres://postgres:postgres@postgres:5432/swadisth
+        - TEST_DATABASE_URL=postgres://postgres:postgres@postgres:5432/swadisth
+        - NODE_ENV=development
     build:
       context: .
       dockerfile: ./Dockerfile
     ports:
       - 4000:4000
-    environment: 
-      - test=test
-      - DATABASE_URL=postgres://postgres:postgres@postgres:5432/swadisth
-      - DEV_DATABASE_URL=postgres://postgres:postgres@postgres:5432/swadisth
-      - TEST_DATABASE_URL=postgres://postgres:postgres@postgres:5432/swadisth
-      - NODE_ENV=development
     volumes:
       - ./:/app
 
