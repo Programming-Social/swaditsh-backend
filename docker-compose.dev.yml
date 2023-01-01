@@ -4,6 +4,7 @@ services:
   dev:
     build:
       context: .
+      dockerfile: ./Dockerfile
     ports:
       - 4000:4000
     environment: 
@@ -14,7 +15,6 @@ services:
       - NODE_ENV=development
     volumes:
       - ./:/app
-    command: npm run test
 
   postgres:
     image: postgres:latest
