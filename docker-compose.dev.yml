@@ -8,9 +8,9 @@ services:
       - 4000:4000
     environment: 
       - test=test
-      - DATABASE_URL=${{secrets.DEV_DATABASE_URL}}
-      - DEV_DATABASE_URL=${{secrets.DEV_DATABASE_URL}}
-      - TEST_DATABASE_URL=${{secrets.DEV_DATABASE_URL}}
+      - DATABASE_URL=${DATABASE_URL}  
+      - DEV_DATABASE_URL=${secrets.DEV_DATABASE_URL}
+      - TEST_DATABASE_URL=${TEST_DATABASE_URL}
     volumes:
       - ./:/app
 
