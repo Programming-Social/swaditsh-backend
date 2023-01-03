@@ -16,7 +16,6 @@ services:
         - NODE_ENV=development
     volumes:
       - ./:/app
-    command: npm run test
 
   postgres:
     image: postgres:latest

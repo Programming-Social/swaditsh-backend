@@ -8,8 +8,9 @@
     "migrate": "sequelize db:migrate",
     "seed": "sequelize db:seed:all",
     "config": "npm config set sav-prefix='' && npm config set save-exact true && npm run migrate",
+    "lint": "esw --ext .json,.js routes --color",
     "start": "npm run config && node index.js",
-    "dev": "npm run config && node server.js",
+    "dev": "npm run config ./ && node server.js",
     "test": "mocha",
     "test:watch": "nodemon --exec mocha"
   },
@@ -32,6 +33,23 @@
     "sql",
     "javascript"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "lint-staged && npm run lint"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{html,css,less,ejs}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "author": "example_user",
   "license": "MIT",
   "bugs": {
@@ -52,7 +70,16 @@
     "chai-http": "4.3.0",
     "dotenv": "16.0.3",
     "eslint": "8.30.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-prettier": "8.6.0",
     "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-json": "3.1.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-promise": "6.1.1",
+    "eslint-plugin-security": "1.5.0",
+    "eslint-watch": "8.0.0",
+    "husky": "8.0.2",
     "mocha": "10.2.0",
     "nodemon": "2.0.20",
     "prettier": "2.8.1",

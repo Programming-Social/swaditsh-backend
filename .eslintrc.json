@@ -8,24 +8,38 @@
     "eslint:recommended",
     "airbnb-base",
     "plugin:security/recommended",
+    "plugin:promise/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:import/extensions",
-    "plugin:promise/recommended",
     "plugin:json/recommended",
     "plugin:node/recommended"
   ],
-  "plugins": ["security"],
+  "plugins": ["security", "import"],
   "overrides": [],
   "parserOptions": {
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "ignores": ["database/**/*.cjs", "database/**/*.js"],
+  "ignorePatterns": [
+    "database/**/*.cjs",
+    "database/**/*.js",
+    "node_modules/**/*"
+  ],
   "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "always",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-console": "off",
     "eqeqeq": "error",
     "quotes": ["warn", "single"],
-    "semi": "error",
+    "semi": "off",
     "linebreak-style": ["error", "unix"],
     "no-multiple-empty-lines": [
       2,
@@ -42,5 +56,12 @@
         "properties": "always"
       }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }

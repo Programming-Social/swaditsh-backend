@@ -7,6 +7,6 @@ COPY ["package.json" ,"package.json"]
 
 RUN npm i
 COPY . .
-RUN npm run test
+RUN npm run lint
 CMD ["node","./server.js"]
 EXPOSE 4000
