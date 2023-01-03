@@ -21,23 +21,23 @@ jobs:
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+      # -
+      #   name: Build and push
+      #   uses: docker/build-push-action@v3
+      #   with:
+      #     context: .
+      #     file: ./Dockerfile
+      #     push: true
+      #     tags: ${{ secrets.DOCKER_HUB_USERNAME }}/swaditsh-backend-dev:latest
       -
-        name: Build and push
+        name: Build Image
+        run: docker compose -f docker-compose.dev.yml build --build-arg DEV_DATABASE_URL="postgres://postgres:postgres@postgres:5432/swadisth"
+      -
+        name: Push Build
+        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/swaditsh-backend-dev:latest
         uses: docker/build-push-action@v3
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/swaditsh-backend-dev:latest
-      # -
-      #   name: Build Image
-      #   run: docker compose -f docker-compose.dev.yml build --build-arg DEV_DATABASE_URL="postgres://postgres:postgres@postgres:5432/swadisth"
-      # -
-      #   name: Push Build
-      #   run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/swaditsh-backend-dev:latest
-        # uses: docker/build-push-action@v3
-        # with:
-        #   context: .
-        #   file: ./Dockerfile
-        #   push: true
-        #   tags: ${{ secrets.DOCKER_HUB_USERNAME }}/swadisht-backend:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/swadisht-backend:latest

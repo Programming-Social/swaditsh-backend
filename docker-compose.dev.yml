@@ -5,15 +5,14 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+      args: 
+          test: test
+          DATABASE_URL: postgres://postgres:postgres@postgres:5432/swadisth
+          TEST_DATABASE_URL: postgres://postgres:postgres@postgres:5432/swadisth
+          NODE_ENV: development
     ports:
       - 4000:4000
     image: swaditsh-backend-dev:latest
-    environment: 
-        - test=test
-        - DATABASE_URL=postgres://postgres:postgres@postgres:5432/swadisth
-        - DEV_DATABASE_URL=postgres://postgres:postgres@postgres:5432/swadisth
-        - TEST_DATABASE_URL=postgres://postgres:postgres@postgres:5432/swadisth
-        - NODE_ENV=development
     volumes:
       - ./:/app
 

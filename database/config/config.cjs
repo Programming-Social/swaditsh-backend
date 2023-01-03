@@ -1,5 +1,6 @@
-// require("dotenv").config();
+require("dotenv").config();
 
+console.log({ hi: process.env.DEV_DATABASE_URL })
 module.exports = {
   development: {
     url: process.env.DEV_DATABASE_URL,

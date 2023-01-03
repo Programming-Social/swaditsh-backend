@@ -7,7 +7,6 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || "development";
 const ConfigImport = require("../config/config.cjs");
 const config = ConfigImport[env]
-console.log({ config });
 const db = {};
 
 let sequelize;
