@@ -5,6 +5,4 @@ const UserRoutes = Router()
 
 UserRoutes.route('/signup').post(SignUp)
 
-
-
 export default UserRoutes
