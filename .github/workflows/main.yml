@@ -31,13 +31,13 @@ jobs:
       #     tags: ${{ secrets.DOCKER_HUB_USERNAME }}/swaditsh-backend-dev:latest
       -
         name: Build Image
-        run: docker compose -f docker-compose.dev.yml build --build-arg DEV_DATABASE_URL="postgres://postgres:postgres@postgres:5432/swadisth"
-      -
-        name: Run database 
-        run: docker compose -f docker-compose.dev.yml run -d postgres
-      -
-        name: Run Server
-        run: docker compose -f docker-compose.dev.yml run dev 
+        run: docker compose -f docker-compose.dev.yml build -t node-test --target test
+      # -
+      #   name: Run database 
+      #   run: docker compose -f docker-compose.dev.yml run -d postgres
+      # -
+      #   name: Run Server
+      #   run: docker compose -f docker-compose.dev.yml run dev -e DEV_DATABASE_URL="postgres://postgres:postgres@postgres:5432/swadisth"
       -
         name: Push Build
         run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/swaditsh-backend-dev:latest

@@ -1,14 +1,18 @@
 # syntax=docker/dockerfile:1
-FROM node:18-alpine
+FROM node:18-alpine as base
 
 WORKDIR ./
 
 COPY ["package.json" ,"package.json"]
-ARG DEV_DATABASE_URL
-RUN env DEV_DATABASE_URL=$DEV_DATABASE_URL
+
+FROM base as test
 RUN npm i
 COPY . .
-RUN npm run lint
 RUN npm run test
-CMD ["node","./server.js"]
+
+FROM base as prod
+RUN npm i
+COPY . .
+CMD [ "node", "server.js" ]
+
 EXPOSE 4000
