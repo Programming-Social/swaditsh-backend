@@ -20,11 +20,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "ignorePatterns": [
-    "database/**/*.cjs",
-    "database/**/*.js",
-    "node_modules/**/*"
-  ],
+  "ignorePatterns": ["database/**/*.cjs", "database/**/*.js", "node_modules/**", "test/**/*.js"],
   "rules": {
     "import/extensions": [
       "error",

@@ -41,8 +41,8 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix"
+    "resolvers/**/*.js": [
+      "eslint --fix resolvers"
     ]
   },
   "author": "example_user",
