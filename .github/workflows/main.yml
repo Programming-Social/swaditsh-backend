@@ -34,7 +34,7 @@ jobs:
         run: docker compose -f docker-compose.dev.yml build --build-arg DEV_DATABASE_URL="postgres://postgres:postgres@postgres:5432/swadisth"
       -
         name: Run database 
-        run: docker compose -f docker-compose.dev.yml run postgres -d 
+        run: docker compose -f docker-compose.dev.yml run -d postgres
       -
         name: Run Server
         run: docker compose -f docker-compose.dev.yml run dev 
