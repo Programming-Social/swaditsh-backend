@@ -33,11 +33,11 @@ jobs:
         name: Build Image
         run: docker compose -f docker-compose.dev.yml build --build-arg DEV_DATABASE_URL="postgres://postgres:postgres@postgres:5432/swadisth"
       -
-        name: Build DB
-        run: docker compose -f docker-compose.dev.yml run postgres
+        name: Run database 
+        run: docker compose -f docker-compose.dev.yml run postgres -d 
       -
         name: Run Server
-        run: docker compose -f docker-compose.dev.yml run dev
+        run: docker compose -f docker-compose.dev.yml run dev 
       -
         name: Push Build
         run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/swaditsh-backend-dev:latest
