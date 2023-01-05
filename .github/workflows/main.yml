@@ -32,6 +32,9 @@ jobs:
       -
         name: Build Image
         run: docker build -t swaditsh-backend-dev . --target test
+      -
+        name: List local images
+        run: docker images --all
       # -
       #   name: Run database 
       #   run: docker compose -f docker-compose.dev.yml run -d postgres
