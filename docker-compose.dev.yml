@@ -10,7 +10,7 @@ services:
         test: test
     ports:
       - 4000:4000
-    image: swaditsh-backend-dev:latest
+    image: swaditsh-backend-dev
     volumes:
       - ./:/app
 
