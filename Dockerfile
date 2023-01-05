@@ -10,10 +10,10 @@ RUN npm i
 COPY . .
 RUN npm run test
 CMD [ "node", "server.js" ]
+EXPOSE 4000
 
 FROM base as prod
 RUN npm i
 COPY . .
 CMD [ "node", "server.js" ]
-
 EXPOSE 4000
