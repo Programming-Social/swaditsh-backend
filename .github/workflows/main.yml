@@ -31,7 +31,7 @@ jobs:
       #     tags: ${{ secrets.DOCKER_HUB_USERNAME }}/swaditsh-backend-dev:latest
       -
         name: Build Image
-        run: docker compose -f docker-compose.dev.yml build
+        run: docker build -t swaditsh-backend-dev:latest . --target test
       # -
       #   name: Run database 
       #   run: docker compose -f docker-compose.dev.yml run -d postgres
