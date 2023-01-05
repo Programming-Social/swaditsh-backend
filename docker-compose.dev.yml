@@ -4,8 +4,8 @@ services:
   dev:
     build:
       context: .
-      dockerfile: ./Dockerfile
       target: test
+      dockerfile: ./Dockerfile
       args: 
         test: test
     ports:
