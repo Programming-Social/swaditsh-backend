@@ -27,9 +27,9 @@ jobs:
       -
         name: List local images
         run: docker images --all
-      # -
-      #   name: Push Build
-      #   run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/swaditsh-backend-dev:latest
+      -
+        name: Push Build
+        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/swaditsh-backend-dev:latest
       # -
       #   name: Build and push
       #   uses: docker/build-push-action@v3
@@ -41,9 +41,9 @@ jobs:
       # -
       #   name: Run database 
       #   run: docker compose -f docker-compose.dev.yml run -d postgres
-      -
-        name: Push Build
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/swadisht-backend:latest
+      # -
+      #   name: Push Build
+      #   uses: docker/build-push-action@v3
+      #   with:
+      #     push: true
+      #     tags: ${{ secrets.DOCKER_HUB_USERNAME }}/swadisht-backend:latest
