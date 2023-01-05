@@ -23,7 +23,7 @@ jobs:
       #   uses: docker/setup-buildx-action@v1
       -
         name: Build Image
-        run: docker build -t swaditsh-backend-dev . --target test
+        run: docker build -t swaditsh-backend-dev:latest . --target test
       -
         name: List local images
         run: docker images --all
