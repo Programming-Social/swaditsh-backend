@@ -9,6 +9,7 @@ FROM base as test
 RUN npm i
 COPY . .
 RUN npm run test
+CMD [ "node", "server.js" ]
 
 FROM base as prod
 RUN npm i
