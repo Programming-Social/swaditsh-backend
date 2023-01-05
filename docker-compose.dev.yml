@@ -6,7 +6,8 @@ services:
       context: .
       dockerfile: ./Dockerfile
       args: 
-          test: test
+        test: test
+      target: test
     ports:
       - 4000:4000
     image: swaditsh-backend-dev:latest
