@@ -1,6 +1,6 @@
-import chai from "chai";
-import chaiHttp from "chai-http";
-// import server from "../server.js";
+const chai = require("chai");
+const chaiHttp = require("chai-http");
+// const server = require('../server');
 
 chai.should();
 chai.use(chaiHttp);
@@ -8,9 +8,10 @@ chai.use(chaiHttp);
 describe('Users', () => {
     describe('User test', () => {
         it('It should respond with the test phrase and a success field .', (done) => {
-            // chai.request(server)
+            // chai.request('http://localhost:4000')
             //     .post('/user/signup').send({
-            //         test: 'Test phrase'
+            //         phone: '7001826129',
+            //         pin: '112321'
             //     })
             //     .end((err, res) => {
             //         res.should.have.status(200);

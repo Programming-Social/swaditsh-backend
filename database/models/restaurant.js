@@ -1,6 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
-const { WEEK_DAYS } = require("../../utilities/constants");
+const { WEEK_DAYS } = require("../../utilities/constants.js");
 module.exports = (sequelize, DataTypes) => {
   class restaurant extends Model {
     /**
@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(models.food_item, { foreignKey: "dishes" });
+      // this.hasMany(models.food_item, { foreignKey: "dish_id" });
     }
   }
   restaurant.init(
@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
       restaurant_id: {
         allowNull: false,
         primaryKey: true,
-        type: DataTypes.UUIDV4,
+        type: DataTypes.UUID,
       },
       restaurant_name: {
         type: DataTypes.TEXT,
@@ -35,9 +35,6 @@ module.exports = (sequelize, DataTypes) => {
       week_days: {
         type: DataTypes.ARRAY(DataTypes.STRING(9)),
         values: WEEK_DAYS,
-      },
-      dishes: {
-        type: DataTypes.ARRAY(DataTypes.UUIDV4),
       },
     },
     {

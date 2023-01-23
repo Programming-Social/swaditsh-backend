@@ -1,6 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
-const { GENDER } = require("../../utilities/constants");
+const { GENDER } = require("../../utilities/constants.js");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -10,13 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(models.order, { foreignKey: "orders" });
+      // this.hasMany(models.order, { foreignKey: "order_id" });
     }
   }
   User.init(
     {
       user_id: {
-        type: DataTypes.UUIDV4,
+        type: DataTypes.UUID,
         allowNull: false,
         primaryKey: true,
       },
@@ -37,14 +37,12 @@ module.exports = (sequelize, DataTypes) => {
         isNumeric: true,
       },
       gender: {
-        type: DataTypes.ENUM(...GENDER),
+        type: DataTypes.ENUM,
+        values: GENDER
       },
       profile_image: {
         type: DataTypes.TEXT,
         isURL: true,
-      },
-      orders: {
-        type: DataTypes.ARRAY(DataTypes.UUIDV4),
       },
     },
     {

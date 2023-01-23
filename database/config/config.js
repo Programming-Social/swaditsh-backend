@@ -1,9 +1,9 @@
 require("dotenv").config();
-
-console.log({ hi: process.env.DEV_DATABASE_URL })
+let DEV_DATABASE_URL = process.env.DEV_DATABASE_URL | 'postgres://postgres:postgres@localhost:5432/swadisth'
+console.log({ hi: DEV_DATABASE_URL })
 module.exports = {
   development: {
-    url: process.env.DEV_DATABASE_URL,
+    url: 'postgres://postgres:postgres@localhost:5432/swadisth',
     dialect: "postgres",
   },
   test: {

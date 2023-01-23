@@ -1,6 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
-const { ORDER_STATUS } = require("../../utilities/constants");
+const { ORDER_STATUS } = require("../../utilities/constants.js");
 module.exports = (sequelize, DataTypes) => {
   class order extends Model {
     /**
@@ -9,13 +9,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-      this.hasOne(models.User, { foreignKey: "user_id" });
-      this.hasOne(models.restaurant, { foreignKey: "restaurant_id" });
-      this.hasOne(models.delivery_partner, {
-        foreignKey: "delivery_partner_id",
-      });
-      this.hasMany(models.food_item, { foreignKey: "order_items" });
+      // // define association here
+      // this.belongsTo(models.User, { foreignKey: "user_id" });
+      // this.belongsTo(models.restaurant, { foreignKey: "restaurant_id" });
+      // this.belongsTo(models.delivery_partner, {
+      //   foreignKey: "partener_id",
+      // });
+      // this.hasMany(models.food_item, { foreignKey: "dish_id" });
     }
   }
   order.init(
@@ -26,25 +26,18 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
       },
       order_status: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.ENUM,
         values: ORDER_STATUS,
         defaultValue: ORDER_STATUS[0],
         allowNull: false,
       },
-      order_items: {
-        type: DataTypes.ARRAY(DataTypes.UUIDV4),
-        allowNull: false,
-      },
       user_id: {
-        type: DataTypes.UUIDV4,
+        type: DataTypes.UUID,
         allowNull: false,
       },
       restaurant_id: {
-        type: DataTypes.UUIDV4,
+        type: DataTypes.UUID,
         allowNull: false,
-      },
-      delivery_partner_id: {
-        type: DataTypes.UUIDV4,
       },
     },
     {

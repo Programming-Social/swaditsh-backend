@@ -1,6 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
-const { GENDER, PARTNER_STATUS } = require("../../utilities/constants");
+const { GENDER, PARTNER_STATUS } = require("../../utilities/constants.js");
 module.exports = (sequelize, DataTypes) => {
   class delivery_partner extends Model {
     /**
@@ -10,13 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(models.order, { foreignKey: "order" });
+      // this.hasMany(models.order, { foreignKey: "partener_id" });
     }
   }
   delivery_partner.init(
     {
       partener_id: {
-        type: DataTypes.UUIDV4,
+        type: DataTypes.UUID,
         allowNull: false,
         primaryKey: true,
       },
@@ -27,16 +27,18 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
       },
       gender: {
-        type: DataTypes.ENUM(...GENDER),
+        type: DataTypes.ENUM,
+        values: GENDER
       },
       aadhar_number: {
         type: DataTypes.STRING(12),
       },
-      orders: {
-        type: DataTypes.ARRAY(DataTypes.UUIDV4),
+      orderids: {
+        type: DataTypes.ARRAY(DataTypes.UUID),
       },
       partner_status: {
-        type: DataTypes.ENUM(PARTNER_STATUS),
+        type: DataTypes.ENUM,
+        values: PARTNER_STATUS,
         defaultValue: PARTNER_STATUS[0],
       },
     },
@@ -46,6 +48,7 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: true,
       createdAt: true,
       updatedAt: true,
+      skipSchema: true,
     }
   );
   return delivery_partner;

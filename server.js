@@ -1,9 +1,9 @@
 // import dotenv from 'dotenv'
-import express from 'express'
-import { Server } from 'http'
-import db from "./database/models/index.cjs"
-import packageFile from './package.json' assert {type: 'json'}
-import UserRoutes from './routes/user-routes.js'
+const express = require('express');
+const { Server } = require('http');
+const db = require("./database/models/index.js");
+const packageFile = require('./package.json');
+const UserRoutes = require('./routes/user-routes.js');
 const { version } = packageFile
 const { sequelize } = db
 
@@ -55,4 +55,4 @@ server.listen(PORT, async () => {
   }
 });
 
-export default server
+module.exports = server

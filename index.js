@@ -1,8 +1,7 @@
-import dotenv from 'dotenv'
-import express from 'express'
-import { Server } from 'http'
-import { version } from './package.json'
-import sequelize from './database/models/index.cjs'
+const express = require('express');
+const { server } = require('http');
+const { version } = require('./package.json');
+const sequelize = require('./database/models/index.js')
 
 const app = express();
 const PORT = process.env.PORT || 4000;
