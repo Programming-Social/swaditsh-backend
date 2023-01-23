@@ -14,6 +14,8 @@ To set up the database, you need to first create a model for the "User" table us
 ```sh
 npx sequelize model:create --name User --attributes name:string,email:string password:string
 
+```
+
 Next, you need to use the Sequelize CLI migration command to migrate the table schemas to the database.
 
 ```
